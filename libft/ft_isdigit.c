@@ -5,18 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: prmarott <prmarott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 12:25:47 by prmarott          #+#    #+#             */
-/*   Updated: 2023/09/20 12:36:09 by prmarott         ###   ########.fr       */
+/*   Created: 2023/09/28 19:27:20 by prmarott          #+#    #+#             */
+/*   Updated: 2023/09/28 19:39:43 by prmarott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft.h"
+#include "libft.h"
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-    if (c >= 48 || c <= 57)
-    {
-        return (1);
-    return (0);
-    }
+	if (c >= 48 && c <= 57)
+		return (1);
+	return (0);
 }

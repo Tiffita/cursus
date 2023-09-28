@@ -6,13 +6,13 @@
 #    By: prmarott <prmarott@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/15 16:55:08 by prmarott          #+#    #+#              #
-#    Updated: 2023/09/20 12:36:11 by prmarott         ###   ########.fr        #
+#    Updated: 2023/09/28 19:28:30 by prmarott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = gcc
-INCLUDES = -I libft.h
+
 CFLAGS = -Wall -Wextra -Werrors
 
 SOURCES = ft_isalpha.c ft_isdigit.c ft_isalnum.c \
@@ -29,21 +29,23 @@ BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 	ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
 	ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 
-EXTENDED = ft_isspace.c ft_isxdigit.c ft_abs.c ft_putchar.c ft_putstr.c \
-	ft_strcpy.c
+OBJECTS = $(SOURCES:.c=.o) 
 
-OBJECTS = $(SOURCES) $(BONUS) $(EXTENDED)
+BONUS_OBJECTS = $(BONUS:.c=.o)
+
 all : $(NAME)
+
 $(NAME) : $(OBJECTS)
-	ar rcs $(NAME) $(OBJECTS) $(INCLUDES)
+	ar rcs $(NAME) $(OBJECTS) 
+	
 %.o : %.c
-	$(CC) -c $(CFLAGS) $(INCLUDES) $< -o $@
+	$(CC) -c $(CFLAGS) $< -o $@
 .PHONY : clean fclean all re bonus
 
 clean :
-	@rm -rf $(OBJECTS)
+	@rm -rf $(OBJECTS) $(BONUS_OBJECTS)
 fclean :
-	@rm -rf $(OBJECTS) $(NAME)
+	@rm -rf $(OBJECTS) $(NAME) $(BONUS_OBJECTS)
 re : fclean all
 
 

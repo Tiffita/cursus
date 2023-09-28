@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: prmarott <prmarott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 12:31:23 by prmarott          #+#    #+#             */
-/*   Updated: 2023/09/20 12:36:08 by prmarott         ###   ########.fr       */
+/*   Created: 2023/09/28 19:27:34 by prmarott          #+#    #+#             */
+/*   Updated: 2023/09/28 19:33:33 by prmarott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft.h"
+#include "libft.h"
 
-int  ft_isascii(int c)
+int	ft_isascii(int c)
 {
-    if (c >= 0 && c <= 127)
-        return(1);
-    return(0);
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
 }
