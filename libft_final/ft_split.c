@@ -35,13 +35,11 @@ static int	count_words(char const *s, char c)
 
 void	free_all(char **array)
 {
-	if (array == NULL)
-		return ;
-	while (*array)
-	{
-		free(*array);
-		array++;
-	}
+	int	i;
+
+	i = -1;
+	while (array[++i])
+		free(array[i]);
 	free(array);
 }
 
