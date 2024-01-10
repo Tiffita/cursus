@@ -101,3 +101,18 @@ char	*get_next_line(int fd)
 	free_content(&content);
 	return (line);
 }
+int	main(void)
+{
+	char	*test;
+	int		fd;
+
+	test = NULL;
+	fd = open("long_line_no_nl.txt", O_RDONLY);
+	while ((test = get_next_line(fd)) != NULL)
+	{
+		printf("\x1b[31mtest : '%s'\x1b[0m", test);
+		free (test);
+		test = NULL;
+	}
+	return (0);
+}
