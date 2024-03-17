@@ -1,7 +1,12 @@
 
 https://stackoverflow.com/questions/1591361/understanding-typedefs-for-function-pointers-in-c
+https://stackoverflow.com/questions/71821060/typedef-in-c-how-it-works-when-it-takes-2-arguments?rq=3
 
+https://conclase.net/c/orden/quicksort
 
+https://es.wikipedia.org/wiki/An%C3%A1lisis_de_algoritmos
+
+https://www.uco.es/grupos/eatco/informatica/metodologia/cadenasyarrays.pdf
 ----------------------------------------
  		INSTRUCCIONES SUBJECT:
 STACK A
