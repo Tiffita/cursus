@@ -1,0 +1,65 @@
+
+https://stackoverflow.com/questions/1591361/understanding-typedefs-for-function-pointers-in-c
+
+
+----------------------------------------
+ 		INSTRUCCIONES SUBJECT:
+STACK A
+
+STACK B
+
+Recibir Arg 
+Ordenar Arg en STACK A de menor a mayor, 1er nº menor en la cima.
+
+Condiciones para STACK A: nº positivos/negativos, nunca duplicados
+
+Recepción de Arg: 1er Arg, 1ero en STACK A, y asi..
+
+Las instrucciones deben separarse utilizando un “\n”
+
+En caso de error, deberá mostrar Error seguido de un “\n”
+Si no se especifican parámetros, el programa no deberá mostrar nada (" ")
+
+--------------------------------------------
+
+
+Recibir Arg y separarlos:
+
+- Recibir string 
+			- Revisar doc sobre recepción argumentos en listas o recibir Arg y pasarlo a listas,  			typedefs for function pointers in C(?))
+
+- Diferenciar posibles nº en String
+	- Casos validos: 555 34 24
+			"4 67 3 87 23" 2 34 53 
+			"4 67 3 87 23"
+				- Manejar espacios entre nº
+				- Manejar distintos Arg
+				- Manejar Arg entero
+					- Separar los nº de un Arg entero por 							 		  espacios
+- Casos no validos: 0 one 2 3
+		    "23, 234, 2323"			
+		    " "		
+		    - Manejar errores o vacíos, dar mensaje error
+- Transformar string en nº int
+- Colocar en STACK A.
+- Programar los Movimientos:(Revisar doc listas y movimientos de nodos)
+	SA swap a
+	SB swap b
+	SS swap a y b
+	PA push a
+	PB push b
+	RA rotate a
+	RB rotate b
+	RR ra y rb juntos
+	RRA reverse rotate a
+	RRB reverse rotate b
+	RRR RRA y RRB juntos
+			- Opciones de prog: Una función para cada movimiento ?
+
+- Programar el algoritmo de ordenación con esos movimientos
+	- Revisar doc sobre algoritmos de ordenación complejos
+- Hacer makefile añadiendo Libft
+
+
+
+
