@@ -47,7 +47,14 @@ int main(int argc, char* argv[]) {
     // printf de instrucciones
     printOperations(operations, opCount);
 
-    // hacer los free
+    // hacer los free del split en caso de que diferentes av o string
+    int i = 0;
+    while (argv[i]) 
+    {
+        free(argv[i]);
+        i++;
+    }
+    free(argv); 
     freeStack(&stack_a);
     free(operations);
 
