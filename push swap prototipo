@@ -1,0 +1,137 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h> revisar si se puede hacer un bool con printf , quiza
+#include <limits.h> necesitos numeros min y max
+
+// definir listas, revisar listas dobles ?
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
+
+// prototipos ( ver bien despues)
+Node* createNode(int value);
+void push(Node** top, int value);
+int pop(Node** top);
+bool isEmpty(Node* top);
+void freeStack(Node** top);
+void split(char* input, Node** top) // modificar split , const char ?)
+void printOperations(int* operations, int count);
+
+// hacer instrucciones (combinarlas con un ft_printf y booleanos)
+void swap(Node** stack);
+void rotate(Node** stack);
+void reverseRotate(Node** stack);
+void pushAtoB(Node** stack_a, Node** stack_b);
+
+int main(int argc, char* argv[]) {
+   
+    Node* stack_a = NULL;
+
+   
+    if (argc != 2) {
+        printf("Error\n");
+        return (1);
+    }
+
+    // iniciar stack a , modificar split
+    ft_split(argv[1], &stack_a);
+
+    // actualizaciones del stack
+    int* operations = (int*)malloc(sizeof(int) * 1000);
+    int opCount = 0;
+
+    //  algoritmo a hacer, llamar a funcion del algoritmo
+    
+
+    // printf de instrucciones
+    printOperations(operations, opCount);
+
+    // hacer los free
+    freeStack(&stack_a);
+    free(operations);
+
+    return (0);
+}
+
+// crear nuevo nodo
+Node* createNode(int value) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    if (newNode) {
+        newNode->data = value;
+        newNode->next = NULL;
+    }
+    return (newNode);
+}
+
+// pushear un nodo al stack
+void push(Node** top, int value) {
+    Node* newNode = createNode(value);
+    if (newNode) {
+        newNode->next = *top;
+        *top = newNode;
+    }
+}
+
+// popear un nodo del stack
+int pop(Node** top) {
+    if (isEmpty(*top)) {
+        printf("Error: Stack is empty\n");
+        return INT_MIN;
+    }
+    int data = (*top)->data;
+    Node* temp = *top;
+    *top = (*top)->next;
+    free(temp);
+    return data;
+}
+
+// hacer un bool para ver si el stack esta vacio
+bool isEmpty(Node* top) {
+    return top == NULL;
+}
+
+// hacer free del stack
+void freeStack(Node** top) {
+    while (!isEmpty(*top)) {
+        pop(top);
+    }
+}
+
+// split para recibir los av
+void split(char* input, Node** top) {
+    char* token = strtok(input, " ");
+    while (token != NULL) {
+        push(top, atoi(token));
+        token = strtok(NULL, " ");
+    }
+}
+
+// printf de las instrucciones
+void printOperations(int* operations, int count) {
+    printf("List of operations:\n");
+    i = 0;
+    while (i < count)
+    }
+       i++;
+       printf("%d ", operations[i]);
+    }
+    printf("\n");
+}
+
+// instrucciones
+void swap(Node** stack) {
+    
+}
+
+void rotate(Node** stack) {
+   
+}
+
+void reverseRotate(Node** stack) {
+    
+}
+
+void pushAtoB(Node** stack_a, Node** stack_b) {
+   
+}
