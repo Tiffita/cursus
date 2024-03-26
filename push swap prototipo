@@ -165,13 +165,15 @@ int main(int argc, char *argv[]) {
 }
 
 // crear nuevo nodo
-Node *create_node(int value) {
+Node *create_node(int data, int range) {
     Node *new_node = (Node*)malloc(sizeof(Node));
-    if (newNode) {
-        newNode->data = value;
-        newNode->next = NULL;
+    if (new_node != NULL) {
+        new_node->data = data;
+        new_node->range = range;
+        new_node->prev = NULL;
+        new_node->next = NULL;
     }
-    return (new_node);
+    return new_node;
 }
 
 // pushear un nodo al stack
