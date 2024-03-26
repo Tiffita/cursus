@@ -15,7 +15,7 @@ void push(Node **top, int value, int range);
 int pop(Node **top);
 int is_empty(Node *top);
 void free_stack(Node **top);
-void ft_new_split(char *input, Node **top);
+void ft_split_list(char *input, Node **top);
 void print_operations(int *operations, int count);
 void swap(Node **stack);
 void rotate(Node **stack);
