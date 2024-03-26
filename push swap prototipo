@@ -14,7 +14,7 @@ typedef struct Node {
 Node *createNode(int value);
 void push(Node **top, int value);
 int pop(Node **top);
-bool isEmpty(Node *top);
+int isEmpty(Node *top);
 void freeStack(Node **top);
 void split(char *input, Node **top) // modificar split , const char ?)
 void printOperations(int *operations, int count);
@@ -58,7 +58,7 @@ int main(int argc, char *argv[]) {
     //  algoritmo a hacer, llamar a funcion del algoritmo
     
 
-    // printf de instrucciones
+    // ft_printf de instrucciones
     printOperations(operations, opCount);
 
     // hacer los free del split en caso de que diferentes av o string
