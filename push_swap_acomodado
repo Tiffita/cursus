@@ -102,7 +102,7 @@ void freeStack(Node **top)
 }
 
 // Función para dividir una cadena en tokens y agregar los valores al stack
-void ft_new_split(char *input, Node **top)
+void ft_split_list(char *input, Node **top)
 {
     char *token = ft_split(input, " ");
     int range = 1; 
