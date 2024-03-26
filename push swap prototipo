@@ -25,6 +25,19 @@ void rotate(Node **stack);
 void reverseRotate(Node **stack);
 void pushAtoB(Node **stack_a, Node **stack_b);
 
+
+// Manejo de errores: check si  av es < 2
+// check is es == 2, seria una string con "", usar ft_split y enviar arguemntos a la lista
+// Si es > a 2, es una lista de argumentos, usar ft_atoi y enviar a la lista para crear nodos.
+// hacer funcion para check duplicados, hacerla antes de recibir argumentos o despues y checkear los nodos?
+
+//funcion de error mensaje:
+void	ft_error(void)
+{	
+	write (2, "Error\n", 6);
+	exit(1);
+}
+
 int main(int argc, char *argv[]) {
    
     Node *stack_a = NULL;
