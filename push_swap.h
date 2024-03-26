@@ -8,12 +8,12 @@
 
 # include "../libft/libft.h"
 
-typedef struct s_stack
-{
-	  long			number;
-	  long			rank;
-	  struct s_stack	*next;
-	  struct s_stack	*prev;
-}	  t_stack;
+typedef struct Node {
+    int data;  // Dato almacenado en el nodo
+    int range; // Componente de rango
+    struct Node* prev; // Puntero al nodo anterior
+    struct Node* next; // Puntero al nodo siguiente
+} Node;
+
 
 #endif
