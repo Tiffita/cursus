@@ -45,7 +45,7 @@ Recibir Arg y separarlos:
 		    "23, 234, 2323"			
 		    " "		
 		    - Manejar errores o vacíos, dar mensaje error
-- Transformar string en nº int
+- Transformar string en nº int: Parsing, parseo
 - Colocar en STACK A.
 - Programar los Movimientos:(Revisar doc listas y movimientos de nodos)
 •	sa : swap a - intercambia los dos primeros elementos encima del stack a. No hace
