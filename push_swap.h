@@ -11,7 +11,7 @@
 typedef struct s_stack
 {
 	  long			number;
-	  long			index;
+	  long			rank;
 	  struct s_stack	*next;
 	  struct s_stack	*prev;
 }	  t_stack;
