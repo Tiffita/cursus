@@ -92,6 +92,17 @@ Recibir Arg y separarlos:
 •	2 puntos por menos de  10.000 acciones.
 •	1 puntos por menos de  11.500 acciones.
 
+EVALUACION: Manejo de errores.
+- Ejecute el comprobador con parámetros no numéricos. El programa debe mostrar "Error".
+- Ejecutar el verificador con un parámetro numérico duplicado. El programa debe mostrar "Error".
+- Ejecutar el verificador sólo con parámetros numéricos incluyendo uno mayor que MAXINT. El programa debe mostrar "Error".
+- Ejecutar el verificador sin ningún parámetro. El programa no debe mostrar nada y devolver el prompt.
+- Ejecute el verificador con parámetros válidos y escriba una acción que no exista durante la fase de instrucción. El programa debe mostrar "Error".
+- Ejecute el verificador con parámetros válidos y escriba una acción con uno o varios espacios antes y/o después de la acción durante la fase de instrucción. El programa debe mostrar "Error".
+
+
+
+
 
 
 
