@@ -1,0 +1,172 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+typedef struct Node {
+    int data;
+    int range;  // Rango del nodo
+    struct Node *next;
+    struct Node *prev;
+} Node;
+
+// Prototipos de funciones
+Node *create_node(int value, int range);
+void push(Node **top, int value, int range);
+int pop(Node **top);
+int is_empty(Node *top);
+void free_stack(Node **top);
+void ft_new_split(char *input, Node **top);
+void print_operations(int *operations, int count);
+void swap(Node **stack);
+void rotate(Node **stack);
+void reverse_rotate(Node **stack);
+void pushAtoB(Node **stack_a, Node **stack_b);
+void initial_Phase(Node **stack_a, int *argv, int size);
+void phase1(Node **stack_a, Node **stack_b, int size);
+void phase2(Node **stack_a, Node **stack_b);
+void phase3(Node **stack_a);
+
+// Función para crear un nuevo nodo
+Node *create_node(int value, int range)
+{
+    Node *new_node = (Node*)malloc(sizeof(Node));
+    if (new_node)
+    {
+        new_node->data = value;
+        new_node->range = range;
+        new_node->next = NULL;
+        new_node->prev = NULL;
+    }
+    return (new_node);
+}
+
+// Función para insertar un nodo en la parte superior del stack
+void push(Node **top, int value, int range)
+{
+    Node *new_node = create_node(value, range);
+    if (new_node)
+  {
+        if (*top == NULL)
+        {
+            new_node->next = new_node;
+            new_node->prev = new_node;
+        } 
+        else
+        {
+            new_node->next = *top;
+            new_node->prev = (*top)->prev;
+            (*top)->prev->next = new_node;
+            (*top)->prev = new_node;
+        }
+        *top = new_node;
+    }
+}
+
+// Función para eliminar y devolver el valor del nodo superior del stack
+int pop(Node **top)
+{
+    if (isEmpty(*top))
+    {
+        ft_printf("Error: Stack is empty\n");
+        return INT_MIN;
+    }
+    int data = (*top)->data;
+    Node *temp = *top;
+    if ((*top)->next == *top)
+    {
+        *top = NULL;
+    }
+    else
+    {
+        (*top)->prev->next = (*top)->next;
+        (*top)->next->prev = (*top)->prev;
+        *top = (*top)->next;
+    }
+    free(temp);
+    return data;
+}
+
+// Función para comprobar si el stack está vacío
+int isEmpty(Node *top)
+{
+    return top == NULL;
+}
+
+// Función para liberar la memoria 
+void freeStack(Node **top)
+{
+    while (!isEmpty(*top))
+    {
+        pop(top);
+    }
+}
+
+// Función para dividir una cadena en tokens y agregar los valores al stack
+void ft_new_split(char *input, Node **top)
+{
+    char *token = ft_split(input, " ");
+    int range = 1; 
+    while (token != NULL)
+    {
+        push(top, ft_atoi(token), range++);
+        token = ft_split(NULL, " ");
+    }
+}
+
+// Función para imprimir las operaciones
+void print_operations(int *operations, int count)
+{
+    while (operations != NULL)
+  {
+        char buffer[20];  
+        ft_itoa(operations->data, buffer, 10);  
+        write(1, buffer, ft_strlen(buffer));  
+        write(1, " ", 1);  
+        operations = operations->next;  
+    }
+    write(1, "\n", 1);
+}
+
+// Funciones de las operaciones (swap, rotate, reverseRotate, pushAtoB)
+
+// Función para la fase inicial del algoritmo
+void initial_phase(Node **stack_a, int *argv, int size)
+{
+    // Hacer el análisis sintáctico de los argv
+    // Crear el stack A y añadir el rango a cada nodo
+   
+}
+
+// Función para la fase 1 del algoritmo
+void phase1(Node **stack_a, Node **stack_b, int size) {
+    // Dividir la lista en 3 y poner los 2 tercios más pequeños en la pila B
+    // Repetir la operación hasta que sólo queden 3 números en la pila A
+    // Ordenar estos 3 números utilizando un algoritmo específico
+}
+
+// Función para la fase 2 del algoritmo
+void phase2(Node **stack_a, Node **stack_b) {
+    // Escanear B y buscar el número que tarde menos movimientos en ser empujado a A
+    // Realizar la operación y repetirla hasta que B esté vacío
+}
+
+// Función para la fase 3 del algoritmo
+void phase3(Node **stack_a) {
+    // Si es necesario, girar la pila A para finalizar el orden correcto
+    // El más corto entre ra o rra
+    // Optimizar las rotaciones dobles rr y rrr
+}
+
+// Función main
+int main(int argc, char *argv[])
+  {
+    Node *stack_a = NULL; 
+    Node *stack_b = NULL; 
+
+    if (argc < 2)
+    {
+        ft_printf("Error");
+        return 1;
+    }
+
+   
