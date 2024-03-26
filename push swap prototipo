@@ -31,6 +31,25 @@ void pushAtoB(Node **stack_a, Node **stack_b);
 // Si es > a 2, es una lista de argumentos, usar ft_atoi y enviar a la lista para crear nodos.
 // hacer funcion para check duplicados, hacerla antes de recibir argumentos o despues y checkear los nodos?
 
+// parseo
+t_stack	*ft_parseo(int argc, char **argv)
+{
+	t_stack	*stack_a;
+	int		i;
+	int		j;
+
+	i = 1;
+	stack_a = NULL;
+	if (argc < 2)
+		ft_error();
+	else if (argc == 2)
+		stack_a = FUNCION PARSEO DE STRING(argv);
+	else
+	{
+		FUNCION PARA LISTA DE ARGUMENTOS(argv, &stack_a);
+	}
+	return (stack_a);
+}
 
 //funcion para checkear errores:
 
