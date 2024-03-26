@@ -165,13 +165,13 @@ int main(int argc, char *argv[]) {
 }
 
 // crear nuevo nodo
-Node *createNode(int value) {
-    Node *newNode = (Node*)malloc(sizeof(Node));
+Node *create_node(int value) {
+    Node *new_node = (Node*)malloc(sizeof(Node));
     if (newNode) {
         newNode->data = value;
         newNode->next = NULL;
     }
-    return (newNode);
+    return (new_node);
 }
 
 // pushear un nodo al stack
@@ -207,8 +207,19 @@ void freeStack(Node **top) {
         pop(top);
     }
 }
+// FUNCION PARA RECIBIR LISTA DE ARGUMENTOS
+void	LISTA DE ARGUMENTOS(char **argv, t_stack **stack_a)
+{
+	long	i;
 
-// split para recibir los av
+	i = 1;
+	while (argv[i] != NULL)
+	{
+		ft_add_back(stack_a, ft_create_node(ft_atoi(argv[i])));
+		i++;
+	}
+}
+// split para recibir los argv
 void split(char *input, Node **top) {
     char *token = ft_split(input, " ");
     while (token != NULL) {
