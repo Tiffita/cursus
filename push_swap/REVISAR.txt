@@ -1,0 +1,16 @@
+1- Revisar las fases del algoritmo y escribir sus funciones.
+2- Me falta la funcion ft_add_back, la del libft del bonus, servira?
+3- Revisar y comparar las funciones duplicadas, pop, push, ft_split_list, new_split, print_operations x2
+4- Crear las funciones de instrucciones: (swap, rotate, reverseRotate, pushAtoB)
+    // instrucciones
+void swap(Node **stack)
+    
+
+void rotate(Node **stack)
+
+
+void reverseRotate(Node **stack) 
+
+
+void pushAtoB(Node **stack_a, Node **stack_b)
+5- De la parte analisis sintactico o parseo, me falta el caso para duplicados, ver si lo hago antes o despues de recibir y acomodar los strings/numeros en Stack A.
