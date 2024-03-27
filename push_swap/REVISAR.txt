@@ -14,3 +14,4 @@ void reverseRotate(Node **stack)
 
 void pushAtoB(Node **stack_a, Node **stack_b)
 5- De la parte analisis sintactico o parseo, me falta el caso para duplicados, ver si lo hago antes o despues de recibir y acomodar los strings/numeros en Stack A.
+6- Cambiar operadores ternarios, e inicializaciones de variables.
