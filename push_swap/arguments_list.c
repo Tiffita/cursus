@@ -6,7 +6,7 @@
 /*   By: prmarott <prmarott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 17:51:39 by prmarott          #+#    #+#             */
-/*   Updated: 2024/03/27 18:20:18 by prmarott         ###   ########.fr       */
+/*   Updated: 2024/03/30 13:11:53 by prmarott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	arguments_list(char **argv, t_stack **stack_a)
 	while (argv[i] != NULL)
 	{
 		ft_add_back(stack_a, ft_create_node(ft_atoi(argv[i])));
-		i++;
+		i++
 	}
 }
