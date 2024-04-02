@@ -55,7 +55,7 @@ void print_operations(int *operations, int count)
 
 
 // Funciones de las operaciones (swap, rotate, reverseRotate, pushAtoB)
-
+------------------------------------------------------------------------------
 // Función para la fase inicial del algoritmo
 void initial_phase(Node **stack_a, int *argv, int size)
 
@@ -66,18 +66,18 @@ void initial_phase(Node **stack_a, int *argv, int size)
 void phase1(Node **stack_a, Node **stack_b, int size) 
     // Dividir la lista en 3 y poner los 2 tercios más pequeños en el stack B
     // Repetir la operación hasta que sólo queden 3 números en el stack A
-    // Ordenar estos 3 números utilizando un algoritmo específico
+    // Ordenar estos 3 números utilizando un algoritmo específico --> sort_list_simple(?)
 
 
 // Función para la fase 2 del algoritmo
 void phase2(Node **stack_a, Node **stack_b) 
-    // Escanear B y buscar el número que tarde menos movimientos en ser empujado a A
-    // Realizar la operación y repetirla hasta que B esté vacío
+    // Escanear B y buscar el número que tarde menos movimientos en ser empujado a A --> funcion de coste
+    // Realizar la operación y repetirla hasta que B esté vacío.
 
 
 // Función para la fase 3 del algoritmo
 void phase3(Node **stack_a) 
-    // Si es necesario, girar la pila A para finalizar el orden correcto
-    // El más corto entre ra o rra
+    // Si es necesario, girar la pila A para finalizar el orden correcto --> sort_list_simple(?)
+    // El más corto entre ra o rra --> sort_list_simple(?)
     // Optimizar las rotaciones dobles rr y rrr
    
