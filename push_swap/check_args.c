@@ -33,3 +33,19 @@ int	check_args(char **argv)
 		return (false);
 	return (true);
 }
+
+long	check_input(char	*str)
+{
+	int	i;
+
+	i = 0;
+	if ((str[i] == '-' || str[i] == '+') && (ft_strlen(str) > 1))
+		i++;
+	while (str[i] != '\0')
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		i++;
+	}
+	return (1);
+}
