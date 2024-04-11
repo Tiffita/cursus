@@ -19,7 +19,7 @@ int	ft_sign(int c)
 	return (0);
 }
 
-void	error_exit(t_stack **stack_a, t_stack **stack_b)
+void	error_show(t_stack **stack_a, t_stack **stack_b)
 {
 	if (stack_a == NULL || *stack_a != NULL)
 		free_stack(stack_a);
