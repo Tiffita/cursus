@@ -1,4 +1,4 @@
-int	is_sorted(t_stack *stack)
+int	check_sorted(t_stack *stack)
 {
 	while (stack->next != NULL)
 	{
