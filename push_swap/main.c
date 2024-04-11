@@ -12,38 +12,27 @@
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+int	main(int ac, char **av)
 {
-	Node *stack_a = NULL;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	int		stack_size;
+	int		i;
 
-	if (argc != 2)
+	i = 1;
+	stack_b = NULL;
+	stack_a = NULL;
+	while (i < ac)
 	{
-		write(2, "Error\n", 6);
-		return (1);
-	}
-
-	// iniciar stack a , modificar split
-	ft_split(argv[1], &stack_a);
-
-	// actualizaciones del stack
-	int *operations = (int *)malloc(sizeof(int) * 1000);
-	int opCount = 0;
-
-	//  algoritmo a hacer, llamar a funcion del algoritmo
-
-	// ft_printf de instrucciones
-	print_operations(operations, opCount);
-
-	// hacer los free del split en caso de que diferentes av o string
-	int i = 0;
-	while (argv[i])
-	{
-		free(argv[i]);
+		parsing(av[i], &stack_a);
 		i++;
 	}
-	free(argv);
-	freeStack(&stack_a);
-	free(operations);
-
+	if (is_duplicate(stack_a))
+		error_exit(&stack_a, NULL);
+	stack_size = get_size(stack_a);
+	get_index(stack_a, stack_size + 1);
+	push_swap(&stack_a, &stack_b, stack_size);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
 	return (0);
 }
