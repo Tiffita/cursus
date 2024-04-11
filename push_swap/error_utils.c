@@ -44,20 +44,22 @@ int	ft_sign(int c)
 }
 
 
-int	ft_checkduplicate(t_stack *a)
+int	check_is_dup(t_stack *to_check)
 {
-	t_stack	*tmp;
+	t_stack	*tmp_one;
+	t_stack	*tmp_two;
 
-	while (a)
+	tmp = to_check;
+	while (tmp_one)
 	{
-		tmp = a->next;
-		while (tmp)
+		tmp_two = tmp_one->next;
+		while (tmp_two)
 		{
-			if (a->nbr == tmp->nbr)
+			if (tmp_one->value == tmp_two->value)
 				return (1);
-			tmp = tmp->next;
+			tmp_two = tmp_two->next;
 		}
-		a = a->next;
+		tmp_one = tmp_one->next;
 	}
 	return (0);
 }
