@@ -12,10 +12,18 @@
 
 #include "push_swap.h"
 
-void	free_stack(Node **top)
+void	free_stack(t_stack **stack)
+
 {
-	while (!is_empty(*top))
+	t_stack	*tmp;
+
+	if (!stack || !(*stack))
+		return ;
+	while (*stack)
 	{
-		pop(top);
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
 	}
+	*stack = NULL;
 }
