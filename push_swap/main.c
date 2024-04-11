@@ -11,7 +11,15 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+static void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
+{
+	if (stack_size == 2 && !check_sorted(*stack_a))
+		do_sa(stack_a);
+	else if (stack_size == 3)
+		do_sort_three(stack_a);
+	else if (stack_size > 3 && !check_sorted(*stack_a))
+		do_sort(stack_a, stack_b);
+}
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
