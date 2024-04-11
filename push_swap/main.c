@@ -35,7 +35,7 @@ int	main(int ac, char **av)
 		parsing(av[i], &stack_a);
 		i++;
 	}
-	if (is_duplicate(stack_a))
+	if (check_is_dup(stack_a))
 		error_exit(&stack_a, NULL);
 	stack_size = get_size(stack_a);
 	get_index(stack_a, stack_size + 1);
