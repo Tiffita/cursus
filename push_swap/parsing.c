@@ -12,21 +12,27 @@
 
 #include "push_swap.h"
 
-t_stack	*ft_parseo(int argc, char **argv)
+void	parsing(char *av, t_stack **stack_a)
 {
-	t_stack	*stack_a;
-	int		i;
-	int		j;
+	char		**input;
+	long int	n;
+	int			i;
 
-	i = 1;
-	stack_a = NULL;
-	if (argc < 2)
-		return(0);
-	else if (argc == 2)
-		stack_a = FUNCION PARSEO DE STRING(argv);
-	else
+	input = ft_split(av, ' ');
+	i = 0;
+	while (input[i] != '\0')
 	{
-		arguments_list(argv, &stack_a);
+		if (check_input(input[i]))
+		{
+			n = ft_atoi(input[i]);
+			if (n > INT_MAX || n < INT_MIN)
+				error_exit(stack_a, NULL);
+			stack_add(stack_a, stack_new(n));
+		}
+		else
+			error_exit(NULL, NULL);
+		free(input[i]);
+		i++;
 	}
-	return (stack_a);
+	free(input);
 }
