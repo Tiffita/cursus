@@ -1,36 +1,47 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: prmarott <prmarott@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/04/11 18:53:12 by prmarott          #+#    #+#              #
+#    Updated: 2024/04/12 22:06:22 by prmarott         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = push_swap
 CC = gcc
 RM = rm -f
 FLAGS = -Wall -Wextra -Werror
-LIBFTDIR = libft/
-PRINTFT = printft/
-OBJ_DIR = obj/
-SRC_DIR = srcs/
+LIBFTDIR = -L/libft/
+LIBFT = $(LIBFTDIR) libft.a
 
-SRC_A = srcs/push_swap/push_swap.c \
-        srcs/push_swap/ft_ETC.c \
+SRCS =  main.c algo_calculate_costs.c algo_index_and_target_for_cost.c \
+        algo_moves_cost.c error_utils.c parsing.c \
+        for_size_and_index.c node_operations_push.c utils.c \
+        node_operations_reverse.c node_operations_rotate.c \
+        node_operations_swap.c sorting1.c sorting2.c \
+        stack_operations.c
 
-OBJ_A = ${SRC_A:.c=.o}
+OBJS = ${SRCS:.c=.o}
 
-INCLUDE = -L ./libft -lft
+INCLUDE = -I $(LIBFTDIR) -I ./ libft.a
 
 .c.o:
-	${CC} -c $< -o ${<:.c=.o}
+	${CC} -c ${FLAGS} ${INCLUDE} $< -o $@
 
-${NAME}: ${OBJ_A} ${OBJ_B}
-	make -C $(LIBFTDIR) $(PRINTFT)
-	${CC} ${FLAGS} ${OBJ_A} ${OBJ_B} -o ${NAME} ${INCLUDE}
+${NAME}: ${OBJS} ${LIBFT}
+	${CC} ${FLAGS} ${OBJS} ${LIBFT} -o ${NAME}
 
-all: ${NAME} 
+all: ${NAME}
 
 clean:
-	${RM} ${OBJ_A} ${OBJ_B} ${NAME}
-	@cd $(LIBFTDIR) $(PRINTFT) && $(MAKE) clean
+	${RM} ${OBJS}
 
 fclean: clean
 	${RM} ${NAME}
-	@cd $(LIBFTDIR) $(PRINTFT) && $(MAKE) fclean
 
-re: clean all
+re: fclean all
 
 .PHONY: all clean fclean re

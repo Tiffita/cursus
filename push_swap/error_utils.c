@@ -6,18 +6,11 @@
 /*   By: prmarott <prmarott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 17:35:36 by prmarott          #+#    #+#             */
-/*   Updated: 2024/03/27 18:18:39 by prmarott         ###   ########.fr       */
+/*   Updated: 2024/04/11 14:33:54 by prmarott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_sign(int c)
-{
-	if (c == '+' || c == '-')
-		return (1);
-	return (0);
-}
 
 void	error_show(t_stack **stack_a, t_stack **stack_b)
 {
@@ -29,27 +22,12 @@ void	error_show(t_stack **stack_a, t_stack **stack_b)
 	exit(1);
 }
 
-int	ft_isspace(int c)
-{
-	if (c == ' ')
-		return (1);
-	return (0);
-}
-
-int	ft_sign(int c)
-{
-	if (c == '+' || c == '-')
-		return (1);
-	return (0);
-}
-
-
 int	check_is_dup(t_stack *to_check)
 {
 	t_stack	*tmp_one;
 	t_stack	*tmp_two;
 
-	tmp = to_check;
+	tmp_one = to_check;
 	while (tmp_one)
 	{
 		tmp_two = tmp_one->next;
@@ -64,7 +42,7 @@ int	check_is_dup(t_stack *to_check)
 	return (0);
 }
 
-int	abs(int nb)
+int	get_abs(int nb)
 {
 	if (nb < 0)
 		return (nb * -1);
