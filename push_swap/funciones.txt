@@ -195,7 +195,7 @@ son negativos o positivos, se aprovechan los movimientos rrr y rr--
 que lo ultimo que quedaba ordenar quizas es el nodo de menor valor, y con sort_stack, este se pone
 arriba de todo y ya estaria todo ordenado.--
 
--- FALTA VER COMO FUNCIONAN LOS NODE OPERATIONS -- Y LOS FREE--
+
 
 --  CUANDO EL ULTIMO IF !NOT SORTED DE DO_SORT YA ES POSITIVO, termina la funcion push swap--
 se liberan los stacks A y B, y fin :D
