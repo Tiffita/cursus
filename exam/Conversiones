@@ -1,0 +1,33 @@
+### Conversión de Carácter a Entero (`char` a `int`)
+
+Cuando conviertes un carácter que representa un dígito numérico a un entero, restas el carácter `'0'` del dígito. Esto se debe a la forma en que se almacenan los caracteres en la tabla ASCII: los caracteres `'0'` a `'9'` están en secuencia y `'0'` tiene un valor entero asociado menor que `'1'`, `'2'`, etc. Por lo tanto, para obtener el valor entero real del carácter, restas el valor ASCII de `'0'` del valor ASCII del dígito.
+
+Por ejemplo, si tienes el carácter `'2'`, para convertirlo a un entero restas `'0'`:
+```c
+char c = '2';
+int num = c - '0'; // num será 2
+```
+
+### Conversión de Entero a Carácter (`int` a `char`)
+
+Por otro lado, cuando conviertes un número entero en su representación de carácter, haces lo contrario: sumas el carácter `'0'` al dígito. Esto se debe a que estás haciendo el proceso inverso al anterior: estás mapeando el valor entero al carácter correspondiente en la tabla ASCII.
+
+Por ejemplo, para convertir el entero 2 en un carácter:
+```c
+int c = 2;
+char num = c + '0'; // c será '2'
+```
+
+### En el Contexto de las Funciones `ft_atoi` y `ft_putnbr_fd`
+
+- **`ft_atoi`**: Esta función convierte una cadena de caracteres en un número entero. Cada vez que se encuentra un dígito en la cadena, multiplica el número acumulado por 10 (para "moverlo un lugar a la izquierda") y luego suma el valor entero del dígito actual.
+  ```c
+  res = res * 10 + (str[i] - '0');
+  ```
+  Aquí, `(str[i] - '0')` convierte el carácter actual a su valor entero.
+
+- **`ft_putnbr_fd`**: Esta función hace lo contrario, convierte un número entero en una secuencia de caracteres. Al trabajar con cada dígito del número, lo convierte a su representación de carácter sumando `'0'`.
+  ```c
+  char c = n % 10 + '0';
+  ```
+  Aquí, `n % 10` obtiene el dígito menos significativo de `n`, y sumar `'0'` lo convierte en el carácter correspondiente.
