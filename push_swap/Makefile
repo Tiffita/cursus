@@ -14,8 +14,8 @@ NAME = push_swap
 CC = gcc
 RM = rm -f
 FLAGS = -Wall -Wextra -Werror
-LIBFTDIR = -L/libft/
-LIBFT = $(LIBFTDIR) libft.a
+
+LIBFT = ./libft
 
 SRCS =  main.c algo_calculate_costs.c algo_index_and_target_for_cost.c \
         algo_moves_cost.c error_utils.c parsing.c \
@@ -26,21 +26,22 @@ SRCS =  main.c algo_calculate_costs.c algo_index_and_target_for_cost.c \
 
 OBJS = ${SRCS:.c=.o}
 
-INCLUDE = -I $(LIBFTDIR) -I ./ libft.a
+%.o : %.c
+	$(CC) -c $(FLAGS) $< -o $@
 
-.c.o:
-	${CC} -c ${FLAGS} ${INCLUDE} $< -o $@
-
-${NAME}: ${OBJS} ${LIBFT}
-	${CC} ${FLAGS} ${OBJS} ${LIBFT} -o ${NAME}
+${NAME} : ${OBJS}
+	$(MAKE) -C $(LIBFT)
+	${CC} ${FLAGS} ${OBJS} -L${LIBFT} -lft -o ${NAME}
 
 all: ${NAME}
 
 clean:
 	${RM} ${OBJS}
+	$(MAKE) -C $(LIBFT) clean
 
 fclean: clean
 	${RM} ${NAME}
+	$(MAKE) -C $(LIBFT) fclean
 
 re: fclean all
 
