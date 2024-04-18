@@ -1,85 +1,64 @@
 Estructura t_stack:
-Define una estructura que representa un elemento de la pila.
+Define una estructura que representa un elemento del stack.
 Contiene campos como value (valor del elemento), index (índice del elemento),
-pos (posición actual en la pila), target (posición objetivo en la pila),
-cost_a (costo asociado al elemento en la pila A) y cost_b (costo asociado al elemento en la pila B).
+pos (posición actual en el stack), target (posición objetivo en el stack),
+cost_a (costo asociado al elemento en el stack A) y cost_b (costo asociado al elemento en el staxk B).
 
 main.c :
-función push_swap que realiza la ordenación de la pila.
-Esta función toma como argumentos dos punteros a pilas (stack_a y stack_b) y
-el tamaño de la pila inicial (stack_size).
-La función utiliza diferentes estrategias de ordenación dependiendo del tamaño de la pila.
-Por ejemplo, si la pila tiene dos elementos y no está ordenada, se realiza un intercambio (sa).
-Si la pila tiene tres elementos, se utiliza un algoritmo especial para ordenarlos.
-Para pilas de tamaño mayor a tres, se utiliza un algoritmo más complejo definido en la
-función do_sort.
+función push_swap que realiza la ordenación del stack A.
+Esta función toma como argumentos dos punteros a los (stack_a y stack_b) y
+el tamaño del stack inicial (stack_size).
+Dependiendo el tamañano del stack, se usan diferentes funciones para ordenar.
+1. si el stack tiene dos elementos y no está ordenada, se realiza un intercambio (sa).
+Si el stack tiene tres elementos, se utiliza un algoritmo especial para ordenarlos.
+Para los stacks de tamaño mayor a tres, se utiliza un algoritmo más complejo definido en la función do_sort.
 
 La función main es el punto de entrada del programa.
-Comienza definiendo dos punteros a pilas stack_a y stack_b y variables adicionales stack_size e i.
+Comienza definiendo dos punteros a los stack_a y stack_b y variables adicionales stack_size e i.
 Utiliza un bucle while para recorrer los argumentos de línea de comandos (av) y
-parsearlos como enteros, agregándolos a la pila stack_a utilizando la función parsing.
-Después de haber parseado todos los argumentos, verifica si hay duplicados en la pila
-utilizando la función check_is_dup. Si se encuentra un duplicado, muestra un mensaje de error
-y libera la memoria antes de salir del programa.
-Luego, calcula el tamaño de la pila (stack_size) y asigna un índice a cada elemento
-de la pila utilizando la función get_index.
-Finalmente, llama a la función push_swap para ordenar la pila stack_a utilizando
-la pila auxiliar stack_b. Una vez ordenada la pila, libera la memoria asignada a ambas pilas y
-devuelve 0 para indicar que el programa se ejecutó correctamente.
+parsearlos como enteros, agregándolos al stack_a utilizando la función parsing.
+Después de haber parseado todos los argumentos, verifica si hay duplicados en el stack A con la función check_is_dup. Si se encuentra un duplicado, muestra un mensaje de errory libera la memoria antes de salir del programa.
+Luego, calcula el tamaño del stack A (stack_size) y asigna un índice a cada elemento utilizando la función get_index.
+Finalmente, llama a la función push_swap para ordenar el stack_a utilizando un stack auxiliar -> stack_b. Una vez ordenado libera la memoria asignada a ambos stacks y devuelve 0 para indicar que el programa se ejecutó correctamente.
 
 parsing.c:
-función parsing, que toma un argumento de tipo char * que representa un argumento de línea de
-comandos y un puntero a puntero a t_stack llamado stack_a. Esta función divide el argumento en
-tokens utilizando el espacio como delimitador y luego convierte cada token en un número entero
-utilizando la función ft_atoi. Si el número está dentro del rango de INT_MIN y INT_MAX, se añade
-a la pila stack_a utilizando la función stack_add. Si no se cumple esta condición, se muestra un
-error utilizando la función error_show.
-Define la función check_input, que verifica si una cadena dada es un número válido.
+función parsing: toma un argumento de tipo char * que representa un argumento de línea de comandos y un puntero a puntero a t_stack llamado stack_a. Esta función divide el argumento en tokens utilizando el espacio como delimitador y luego convierte cada token en un número entero utilizando la función new_atoi. Si el número está dentro del rango de INT_MIN y INT_MAX, se añade al stack_a con la función stack_add. Si no se cumple esta condición, se muestra un error utilizando la función error_show.
+función check_input: verifica si una cadena dada es un número válido.
 Comprueba si la cadena comienza con un signo - o +, y si lo hace, se mueve al siguiente carácter.
-Luego, verifica si todos los caracteres restantes son dígitos del 0 al 9. Si se encuentra un
-carácter que no sea un dígito, devuelve 0; de lo contrario, devuelve 1.
+Luego, verifica si todos los caracteres restantes son dígitos del 0 al 9. Si se encuentra un carácter que no sea un dígito, devuelve 0; de lo contrario, devuelve 1.
 
 stack_operations.c:
-get_bottom: Esta función recorre la pila hasta encontrar el último elemento y lo devuelve.
-Si la pila está vacía o tiene solo un elemento, devuelve el mismo elemento.
+get_bottom: Esta función recorre el stack hasta encontrar el último elemento y lo devuelve.
+Si el staxk está vacío o tiene solo un elemento, devuelve el mismo elemento.
 
-stack_add: Esta función agrega un nuevo elemento a la pila. Si la pila está vacía, el nuevo
-elemento se convierte en el primer elemento de la pila. Si la pila no está vacía, se busca el
-último elemento de la pila y se agrega el nuevo elemento después de él.
+stack_add: Esta función agrega un nuevo elemento al stack. Si el stack está vacío, el nuevo elemento se convierte en el primer elemento de ese stack. Si el stack no está vacío, busca el último elemento del stack y se agrega el nuevo elemento después de él.
 
-check_bottom: Esta función es similar a get_bottom, pero devuelve el penúltimo elemento de la
-pila en lugar del último. Se utiliza para verificar si la pila tiene solo dos elementos.
+check_bottom: Esta función es como get_bottom, pero devuelve el penúltimo elemento del stack en vez del último. Es para verificar si el stack tiene solo dos elementos.
 
-stack_new: Esta función crea un nuevo nodo de la pila con el valor especificado.
+stack_new: Esta función crea un nuevo nodo en el stack con el valor especificado.
 Asigna memoria para el nuevo nodo, inicializa sus campos y lo devuelve.
 
 for_size_and_index.c:
-get_index: Esta función asigna índices únicos a los elementos de la pila en función de sus valores.
-Recorre la pila y busca el elemento con el valor más grande que aún no tiene un índice asignado.
-Luego, asigna un índice único a ese elemento y repite el proceso hasta que todos los elementos
-tengan un índice asignado. El índice se asigna en orden descendente, es decir, - el elemento con
-el valor más grande recibe el índice más grande.-
+get_index: Esta función asigna índices únicos a los elementos del stack en función de sus valores.
+Recorre el stack y busca el elemento con el valor más grande que aún no tiene un índice asignado.
+Luego, asigna un índice único a ese elemento y repite el proceso hasta que todos los elementos tengan un índice asignado. El índice se asigna en orden descendente, osea - el elemento con el valor más grande recibe el índice más grande.-
 
-get_size: Esta función devuelve el tamaño de la pila, es decir, el número de elementos que contiene.
-Recorre la pila y cuenta el número de elementos hasta que llega al final.
+get_size: Esta función devuelve el tamaño del stack, es decir, el número de elementos que contiene.
+Recorre el stack y cuenta el número de elementos hasta que llega al final.
 Luego devuelve el tamaño calculado.
 
 sorting1.c:
-check_sorted: Esta función verifica si la pila está ordenada en orden ascendente.
-Recorre la pila y compara cada elemento con su siguiente.
-Si encuentra un elemento mayor que su siguiente, devuelve 0, indicando que la pila no está ordenada.
-Si no encuentra ningún elemento que incumpla esta condición, devuelve 1, indicando que la pila
-está ordenada.
+check_sorted: Esta función verifica si el stack está ordenado en orden ascendente.
+Recorre el stack y compara cada elemento con el que le sigue.
+Si encuentra un elemento mayor que su siguiente, devuelve 0, indicando que el stack no está ordenado.
+Si esta ordenado, devuelve 1, indicando que el stack está ordenado.
 
-do_sort_three: Esta función ordena los tres elementos superiores de la pila.
-Comienza verificando si la pila ya está ordenada; si es así, no se realizan operaciones adicionales.
-Si no está ordenada, busca el índice más grande entre los tres elementos y luego realiza las
-operaciones necesarias (ra, rra y sa) para colocar el elemento con el índice más grande en la
-parte superior de la pila y, finalmente, realiza un intercambio si es necesario.
+do_sort_three: Esta función ordena los tres elementos superiores del stack.
+Comienza verificando si el stack ya está ordenado; si es así, no se realizan operaciones adicionales.
+Si no está ordenado, busca el índice más grande entre los tres elementos y luego realiza las operaciones necesarias (ra, rra y sa) para colocar el elemento con el índice más grande en la parte superior del stack y, finalmente, realiza un intercambio si es necesario.
 
 sorting2.c:
-push_init: Esta función se encarga de empujar los elementos del stack A al stack B inicialmente,
-considerando la posición de los índices. Primero, verifica si la mitad de los elementos del stack A
+push_init: Esta función se encarga de empujar los elementos del stack A al stack B inicialmente, considerando la posición de los índices. Primero, verifica si la mitad de los elementos del stack A
 ya están en el stack B o no. Si no lo están, los empuja al stack B; de lo contrario, rota el stack A.
 Luego, empuja el resto de los elementos del stack A al stack B.
 Cuando el índice del elemento actual supera la mitad del tamaño del stack A,
